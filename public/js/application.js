@@ -24,4 +24,16 @@ $(document).ready(function() {
       }
     });
   });
+
+  $('#linky_linky').on('click', function(event) {
+    event.preventDefault();
+    var href = $(event.target).attr('href');
+    $.ajax({
+      type: 'get',
+      url: href + '/',
+    }).done(function(response) {
+      $('#show_form_here_sil_vous_plait form').replaceWith(response);
+    });
+  });
 });
+
