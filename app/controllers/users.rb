@@ -2,6 +2,10 @@ get '/users/new' do
   erb :'users/new'
 end
 
+get '/users/signin' do
+    erb :'users/signin'
+end
+
 get '/users/edit/:id' do
   user = User.find(params[:id])
 
@@ -26,5 +30,13 @@ post '/users/new' do
   else
     [402, 'Something went wrong']
   end
+end
+
+post '/users/signin' do
+
+end
+
+put 'users/edit/:id' do
+
 end
 

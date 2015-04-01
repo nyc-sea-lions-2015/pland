@@ -1,4 +1,7 @@
 <form action='/users/new' method='post'>
   <%= erb :'users/_form' %>
+  <div>
+    <%= input_form('password', 'confirm_password') %>
+  </div>
   <input type='submit' value='Create Me!'>
 </form>
