@@ -2,6 +2,12 @@ get '/users/new' do
   erb :'users/new'
 end
 
+get '/users/edit/:id' do
+  user = User.find(params[:id])
+
+  erb :'users/edit', locals: {user: user}
+end
+
 get '/users/:id' do
 
 end
