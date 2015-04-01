@@ -17,7 +17,7 @@ get '/users/:id' do
 end
 
 post '/users/new' do
-  redirect to('/users/new?error=Password%20did%20not%20match')  unless params[:password] == params[:confirm_password]
+  redirect '/users/new?error=Password%20did%20not%20match'  unless params[:password] == params[:confirm_password]
 
   new_user = User.new(first_name: params[:first_name],
                       last_name:  params[:last_name],
@@ -33,7 +33,14 @@ post '/users/new' do
 end
 
 post '/users/signin' do
+  user = User.find_by(email: params[:email])
 
+  if user && user.authenticate(params[:password])
+    session[:user_id] = user.id
+    redirect "/users/#{user.id}"
+  else
+    redirect '/users/signin?error=Wrong%20password'
+  end
 end
 
 put 'users/edit/:id' do
