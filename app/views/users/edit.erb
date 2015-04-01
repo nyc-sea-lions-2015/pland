@@ -1,0 +1,5 @@
+<form action='/users/new' method='post'>
+  <input type='hidden' name='_method' value='put'>
+  <%= erb :'users/_form', locals: {user: user} %>
+  <input type='submit' value='Update Me!'>
+</form>

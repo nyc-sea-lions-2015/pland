@@ -1,0 +1,33 @@
+<div>
+  <form action='/events/<%= event.id %>' method='post'>
+    <input type='hidden' name='_method' value='put'>
+
+    <div>
+      <%= input_form('text', 'name', {value: event.description}) %>
+    </div>
+    <div>
+      Creator: <%= "#{event.creator.first_name} #{event.creator.last_name}" %>
+    </div>
+    <div>
+      Event Type: 
+      <select>
+        <% event_types.each do |event_type| %>
+        event.id
+          <% if event.event_type_id == event_type.id %>
+            <%= option(event_type.description, event.id, true) %>
+          <% else %>
+            <%= option(event_type.description, event.id) %>
+          <% end %>
+        <% end %>
+      </select>
+    </div>
+    <div>
+      <%= input_form('datetime-local', 'open_date_time', {value: event.open_datetime.strftime("%FT%T")}) %>
+    </div>
+    <div>
+      <%= input_form('datetime-local', 'end_date_time', {value: event.end_datetime.strftime("%FT%T")}) %>
+    </div>
+
+    <input type='submit' value='Update Me!'>
+  </form>
+</div>

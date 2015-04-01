@@ -1,0 +1,5 @@
+<% events.each do |event| %>
+    <div class='div<%= event.id %>'>
+      <a href='/events/<%= event.id %>'><%= event.description %></a> <a href='/events' id='<%= event.id %>'>Delete</a>
+    </div>
+<% end %>
