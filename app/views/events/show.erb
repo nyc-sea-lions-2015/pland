@@ -1,12 +1,12 @@
 <div>
   <div>
+    Name: <%= event.description %>
+  </div>
+  <div>
     Creator: <%= "#{event.creator.first_name} #{event.creator.last_name}" %>
   </div>
   <div>
     Event Type: <%= event.event_type.description.capitalize %>
-  </div>
-  <div>
-    Name: <%= event.description %>
   </div>
   <div>
     Start: <%= date_format(event.open_datetime) %>

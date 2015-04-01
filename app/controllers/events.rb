@@ -6,7 +6,13 @@ end
 
 get '/events/:id' do
   event = Event.find(params[:id])
-  creator = User.find(event.creator_id)
 
-  erb :'events/show', locals: {event: event, creator: creator}
+  erb :'events/show', locals: {event: event}
+end
+
+delete '/events/:id' do
+  event = Event.find(params[:id])
+  event.destroy
+
+  redirect '/events'
 end
