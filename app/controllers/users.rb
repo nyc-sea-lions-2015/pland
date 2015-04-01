@@ -35,6 +35,8 @@ end
 
 get '/users/:id' do
   redirect_not_signin
+
+  erb :'users/show'
 end
 
 post '/users/new' do
