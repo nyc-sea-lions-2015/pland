@@ -3,7 +3,12 @@ get '/users/new' do
 end
 
 get '/users/signin' do
-    erb :'users/signin'
+  erb :'users/signin'
+end
+
+get '/users/signout' do
+  session[:user_id] = nil
+  redirect '/'
 end
 
 get '/users/edit/:id' do
