@@ -29,8 +29,9 @@ end
   7.times do |day|
     Event.create(creator:        User.all.sample,
                  event_type:     EventType.all.sample,
+                 description:    Faker::Company.name,
                  open_datetime:  start + day.days,
-                 end_datetime: start + day.days + 12.hours)
+                 end_datetime:   start + day.days + 12.hours)
   end
 end
 
