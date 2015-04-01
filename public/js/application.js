@@ -12,7 +12,7 @@ $(document).ready(function() {
   $('#dob').val(new Date().toDateInputValue());
 
   // hide the div if the server says yes it got deleted!!!!! MUAHAHAHAHAHA!!!!!
-  $('#update_me_sil_vous_plait').on('click', function(event) {
+  $('#update_me_sil_vous_plait .delete').on('click', function(event) {
     event.preventDefault();
     var id = $(event.target).attr('id');
     $.ajax({
