@@ -10,4 +10,18 @@ $(document).ready(function() {
 
   // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
   $('#dob').val(new Date().toDateInputValue());
+
+  // hide the div if the server says yes it got deleted!!!!! MUAHAHAHAHAHA!!!!!
+  $('#update_me_sil_vous_plait').on('click', function(event) {
+    event.preventDefault();
+    var id = $(event.target).attr('id');
+    $.ajax({
+      type: 'delete',
+      url: '/events/' + id,
+    }).done(function(response) {
+      if(response == 1){
+        $('.div'+eval(id)).toggle(false);
+      }
+    });
+  });
 });

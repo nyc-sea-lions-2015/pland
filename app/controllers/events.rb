@@ -31,5 +31,18 @@ delete '/events/:id' do
   event = Event.find(params[:id])
   event.destroy
 
-  redirect '/events'
+# why does request.xhr? not working?
+  if event
+    if request.xhr?
+      '1'
+    else
+      redirect '/events'
+    end
+  else
+    if request.xhr?
+      '0'
+    else
+      [500, "Whhhhat? it be gone!!!"]
+    end
+  end
 end
