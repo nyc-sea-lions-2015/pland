@@ -7,6 +7,12 @@ def input_form(type, name, args={})
    <input type='#{type}' placeholder='#{name_for_form}' name ='#{name}' #{html_value} #{html_id}>"
 end
 
+def option(name, value, selected = false)
+  html_selected = selected ? "selected='selected'" : ''
+
+  "<option value=#{value} #{html_selected}>#{name}</option>"
+end
+
 def date_format(date_time)
   date_time.strftime("%D %I:%M %p")
 end
