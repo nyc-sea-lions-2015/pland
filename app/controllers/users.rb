@@ -3,6 +3,12 @@ get '/users/new' do
 end
 
 get '/users/signin' do
+  if session[:user_id]
+    user = get_user
+
+    redirect "/users/#{user.id}"
+  end
+
   erb :'users/signin'
 end
 
@@ -12,13 +18,15 @@ get '/users/signout' do
 end
 
 get '/users/edit/:id' do
+  redirect_not_signin
+
   user = User.find(params[:id])
 
   erb :'users/edit', locals: {user: user}
 end
 
 get '/users/:id' do
-
+  redirect_not_signin
 end
 
 post '/users/new' do
@@ -49,6 +57,7 @@ post '/users/signin' do
 end
 
 put 'users/edit/:id' do
+  redirect_not_signin
 
 end
 
