@@ -1,23 +1,18 @@
-<div>
+  <div>
     <%= input_form('text', 'first_name') %>
   </div>
   <div>
-    <label for='last_name'>Last Name:</label>
-    <input type='text' placeholder='Last Name' name ='last_name'>
+    <%= input_form('text', 'last_name') %>
   </div>
   <div>
-    <label for='email'>E-Mail:</label>
-    <input type='text' placeholder='E-mail Adress' name ='email'>
+    <%= input_form('text', 'email') %>
   </div>
   <div>
-    <label for='dob'>Date of Birth:</label>
-    <input id='dob' type='date' name ='dob'>
+    <%= input_form('date', 'dob', id: 'dob') %>
   </div>
   <div>
-    <label for='password'>Password:</label>
-    <input type='password' placeholder='Password' name='password'>
+    <%= input_form('password', 'password') %>
   </div>
   <div>
-    <label for='confirm_password'>Confirm Password:</label>
-    <input type='password' placeholder='Confirm Password' name='confirm_password'>
+    <%= input_form('password', 'confirm_password') %>
   </div>
