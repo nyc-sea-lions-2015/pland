@@ -1,0 +1,23 @@
+<div>
+  <div>
+    Creator: <%= "#{event.creator.first_name} #{event.creator.last_name}" %>
+  </div>
+  <div>
+    Event Type: <%= event.event_type.description.capitalize %>
+  </div>
+  <div>
+    Name: <%= event.description %>
+  </div>
+  <div>
+    Start: <%= date_format(event.open_datetime) %>
+  </div>
+  <div>
+    Close: <%= date_format(event.end_datetime) %>
+  </div>
+  <a href='/events/edit/<%= event.id %>'>Edit</a>
+  <form action='/events/<%= event.id %>' method='post'>
+    <input type='hidden' name='_method' value='delete'>
+
+    <input type='submit' value='Delete Me!'>
+  </form>
+</div>

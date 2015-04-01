@@ -6,3 +6,7 @@ def input_form(type, name, args={})
   "<label for='#{name}'>#{name_for_form}:</label>
    <input type='#{type}' placeholder='#{name_for_form}' name ='#{name}' #{html_value} #{html_id}>"
 end
+
+def date_format(date_time)
+  date_time.strftime("%D %I:%M %p")
+end
